@@ -25,7 +25,7 @@ export class UsuariosDTO {
     @IsOptional()
     readonly role: USUARIOS_ROLES;
 
-    @IsBoolean()
+    @IsString()
     @IsOptional()
     readonly activo: boolean;
 

@@ -42,10 +42,12 @@ export class UsuariosService {
   async listarUsuarios({ columna, direccion }: any): Promise<Usuarios[]> {
 
     let orderBy = {};
-    orderBy[columna] = direccion;
+    orderBy[columna] = direccion == 1 ? 'asc' : 'desc';
+
+    console.log(orderBy);
 
     return await this.prisma.usuarios.findMany({
-      orderBy: { apellido: 'asc' }
+      orderBy
     });
 
   }
@@ -109,7 +111,6 @@ export class UsuariosService {
       role,
       password,
       activo,
-      permisos = []
     } = usuariosUpdateDTO;
 
     const data = {
@@ -120,7 +121,7 @@ export class UsuariosService {
       email,
       role,
       password,
-      activo,
+      activo: activo === 'true' ? true : false,
     }
 
     // Actualizacion de datos de usuario
