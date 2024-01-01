@@ -1,15 +1,29 @@
+## Informacion inicial
+- `Node v20.0.9`
+- `NPM v9.5.1`
 
-## Instalación
-
+## Comenzando
 ```bash
+# Instalacion de librerias
 $ yarn install
 ```
 
-## Correr la aplicación
+## Variables de entorno
+- Configurar las `variables de entorno` primero que todo
 
-- Version de Node v18.16.0 (NPM v9.5.1)
-- Configurar las variables de entorno primero que todo
+## Docker
+- Se inicia contenedor de docker - `Mysql y phpMyAdmin`
+```bash
+$ docker compose up -d
+```
 
+## Prisma ORM
+- Migracion de inicializacion
+```bash
+$ yarn prisma:init
+```
+
+## Ejecucion de proyecto
 ```bash
 # Desarrollo
 $ yarn start
